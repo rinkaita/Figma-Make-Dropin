@@ -1,0 +1,1227 @@
+@import 'tailwindcss';
+
+/* 
+ * NOTE - this file is INTENTIONALLY busy
+ *
+ * This is a TEMPORARY, work in progress solution to help fill a gap before a longer-term, Figma-supported solution exists
+ * 
+ * Including all these CSS variables helps ensure:
+ * - Tailwind can properly reference the Backyard 4 color tokens instead of the Tailwind defaults
+ * - All the Backyard 4 default theme (base 16 fixed) tokens are available for reference in downstream code
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Brand */
+  --color-brand-100: #f3f7ff;
+  --color-brand-200: #ebf1ff;
+  --color-brand-300: #c1d4ff;
+  --color-brand-400: #85a7f5;
+  --color-brand-500: #668eea;
+  --color-brand-600: #2b59c0;
+  --color-brand-700: #123c9b;
+  --color-brand-800: #012169;
+  --color-brand-900: #001544;
+  --color-brand-950: #00091f;
+
+  /* Cyan */
+  --color-cyan-100: #d4f4ff;
+  --color-cyan-200: #aae8ff;
+  --color-cyan-300: #55d0fe;
+  --color-cyan-400: #29bcf3;
+  --color-cyan-500: #00a3e0;
+  --color-cyan-600: #005478;
+  --color-cyan-700: #003951;
+  --color-cyan-800: #002a3b;
+  --color-cyan-900: #00202d;
+  --color-cyan-950: #00161f;
+
+  /* Blue */
+  --color-blue-50: #f0f8ff;
+  --color-blue-100: #d4ebfe;
+  --color-blue-200: #a9d8fd;
+  --color-blue-300: #7dc2fa;
+  --color-blue-400: #51aaf2;
+  --color-blue-500: #268fe4;
+  --color-blue-600: #0072ce;
+  --color-blue-700: #0059a4;
+  --color-blue-800: #00386a;
+  --color-blue-900: #002544;
+  --color-blue-950: #00111f;
+
+  /* Sky */
+  --color-sky-100: #ddeef9;
+  --color-sky-200: #bcddf4;
+  --color-sky-300: #9bcbeb;
+  --color-sky-400: #7cb9e2;
+  --color-sky-500: #5ca3d2;
+  --color-sky-600: #216795;
+  --color-sky-700: #0a3d5f;
+  --color-sky-800: #03273f;
+  --color-sky-900: #011c2f;
+  --color-sky-950: #00121f;
+
+  /* Red */
+  --color-red-100: #fbdee3;
+  --color-red-200: #f8bec7;
+  --color-red-300: #f19caa;
+  --color-red-400: #e77b8c;
+  --color-red-500: #d6596d;
+  --color-red-600: #bd384e;
+  --color-red-700: #971b2f;
+  --color-red-800: #610816;
+  --color-red-900: #40030d;
+  --color-red-950: #1f0005;
+
+  /* Tomato */
+  --color-tomato-100: #ffdcda;
+  --color-tomato-200: #ffbab5;
+  --color-tomato-300: #ff9790;
+  --color-tomato-400: #fa7369;
+  --color-tomato-500: #ee4d41;
+  --color-tomato-600: #da291c;
+  --color-tomato-700: #ad170c;
+  --color-tomato-800: #700801;
+  --color-tomato-900: #40030d;
+  --color-tomato-950: #1f0200;
+
+  /* Gold */
+  --color-gold-100: #fff4db;
+  --color-gold-200: #ffe9b6;
+  --color-gold-300: #ffd46e;
+  --color-gold-400: #ffc949;
+  --color-gold-500: #f0b323;
+  --color-gold-600: #835b00;
+  --color-gold-700: #593d00;
+  --color-gold-800: #402c00;
+  --color-gold-900: #2f2100;
+  --color-gold-950: #1f1500;
+
+  /* Yellow */
+  --color-yellow-100: #fff7d9;
+  --color-yellow-200: #fff0b3;
+  --color-yellow-300: #fee067;
+  --color-yellow-400: #f3d03e;
+  --color-yellow-500: #d6b425;
+  --color-yellow-600: #725b00;
+  --color-yellow-700: #4c3d00;
+  --color-yellow-800: #372c00;
+  --color-yellow-900: #2b2200;
+  --color-yellow-950: #1f1800;
+
+  /* Green */
+  --color-green-100: #d4f7e3;
+  --color-green-200: #abf0c8;
+  --color-green-300: #83e5ac;
+  --color-green-400: #37c271;
+  --color-green-500: #17a452;
+  --color-green-600: #007a33;
+  --color-green-700: #004b1d;
+  --color-green-800: #003113;
+  --color-green-900: #002810;
+  --color-green-950: #001f0d;
+
+  /* Grass */
+  --color-grass-100: #ebfce3;
+  --color-grass-200: #d7fac8;
+  --color-grass-300: #a9eb8d;
+  --color-grass-400: #71c34e;
+  --color-grass-500: #509e2f;
+  --color-grass-600: #2b6612;
+  --color-grass-700: #194307;
+  --color-grass-800: #113203;
+  --color-grass-900: #0d2801;
+  --color-grass-950: #091f00;
+
+  /* Lime */
+  --color-lime-100: #f7fce0;
+  --color-lime-200: #eff9c1;
+  --color-lime-300: #d6ea81;
+  --color-lime-400: #c3da60;
+  --color-lime-500: #a9c23f;
+  --color-lime-600: #53640b;
+  --color-lime-700: #364203;
+  --color-lime-800: #283101;
+  --color-lime-900: #202800;
+  --color-lime-950: #191f00;
+
+  /* Dark */
+  --color-dark-100: #e9edfd;
+  --color-dark-200: #d3dcfb;
+  --color-dark-300: #a4b5f1;
+  --color-dark-400: #8b9ee6;
+  --color-dark-500: #7085d5;
+  --color-dark-600: #546abc;
+  --color-dark-700: #374c97;
+  --color-dark-800: #2a3c7e;
+  --color-dark-900: #1f2e66;
+  --color-dark-950: #141f48;
+
+  /* Blue 2 */
+  --color-blue2-100: #dce6fc;
+  --color-blue2-200: #b9cef9;
+  --color-blue2-300: #92b1f4;
+  --color-blue2-400: #7ea2f0;
+  --color-blue2-500: #5f8ae8;
+  --color-blue2-600: #1d52c5;
+  --color-blue2-700: #0d42b2;
+  --color-blue2-800: #0033a0;
+  --color-blue2-900: #001e67;
+  --color-blue2-950: #001443;
+
+  /* Neutral */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f4f6fa;
+  --color-neutral-300: #e5e9f1;
+  --color-neutral-400: #cbd1dd;
+  --color-neutral-500: #9ea4b2;
+  --color-neutral-600: #616670;
+  --color-neutral-700: #393c44;
+  --color-neutral-800: #24272d;
+  --color-neutral-900: #17191f;
+  --color-neutral-950: #000000;
+
+  --color-black: #000;
+  --color-white: #fff;
+
+  --bds-color-action-dark-interactive: #51aaf2;
+  --bds-color-action-dark-interactive-hover: #7dc2fa;
+  --bds-color-action-dark-interactive-pressed: #a9d8fd;
+  --bds-color-action-dark-interactive-subdued: #002544;
+  --bds-color-action-dark-interactive-subdued-hover: #00386a;
+  --bds-color-action-dark-interactive-subdued-pressed: #0059a4;
+  --bds-color-action-green: #007a33;
+  --bds-color-action-green-hover: #004b1d;
+  --bds-color-action-green-pressed: #003113;
+  --bds-color-action-green-subdued: #d4f7e3;
+  --bds-color-action-green-subdued-hover: #abf0c8;
+  --bds-color-action-green-subdued-pressed: #83e5ac;
+  --bds-color-action-interactive: #0072ce;
+  --bds-color-action-interactive-hover: #0059a4;
+  --bds-color-action-interactive-pressed: #00386a;
+  --bds-color-action-interactive-subdued: #f0f8ff;
+  --bds-color-action-interactive-subdued-hover: #d4ebfe;
+  --bds-color-action-interactive-subdued-pressed: #a9d8fd;
+  --bds-color-action-light-interactive: #0072ce;
+  --bds-color-action-light-interactive-hover: #0059a4;
+  --bds-color-action-light-interactive-pressed: #00386a;
+  --bds-color-action-light-interactive-subdued: #f0f8ff;
+  --bds-color-action-light-interactive-subdued-hover: #d4ebfe;
+  --bds-color-action-light-interactive-subdued-pressed: #a9d8fd;
+  --bds-color-action-neutral: #f4f6fa;
+  --bds-color-action-neutral-hover: #e5e9f1;
+  --bds-color-action-neutral-pressed: #cbd1dd;
+  --bds-color-action-red: #971b2f;
+  --bds-color-action-red-hover: #610816;
+  --bds-color-action-red-pressed: #40030d;
+  --bds-color-action-red-subdued: #fbdee3;
+  --bds-color-action-red-subdued-hover: #f8bec7;
+  --bds-color-action-red-subdued-pressed: #f19caa;
+  --bds-color-black: #000000;
+  --bds-color-border-contrast: #17191f;
+  --bds-color-border-contrast-inverse: #f4f6fa;
+  --bds-color-border-dark-interactive: #51aaf2;
+  --bds-color-border-dark-interactive-inverse: #0072ce;
+  --bds-color-border-default: #616670;
+  --bds-color-border-default-inverse: #616670;
+  --bds-color-border-disabled: #9ea4b2;
+  --bds-color-border-disabled-inverse: #616670;
+  --bds-color-border-green: #007a33;
+  --bds-color-border-green-inverse: #37c271;
+  --bds-color-border-hover: #393c44;
+  --bds-color-border-hover-inverse: #9ea4b2;
+  --bds-color-border-interactive: #0072ce;
+  --bds-color-border-interactive-inverse: #51aaf2;
+  --bds-color-border-light-interactive: #0072ce;
+  --bds-color-border-light-interactive-inverse: #51aaf2;
+  --bds-color-border-pressed: #24272d;
+  --bds-color-border-pressed-inverse: #cbd1dd;
+  --bds-color-border-red: #971b2f;
+  --bds-color-border-red-inverse: #e77b8c;
+  --bds-color-border-subdued: #cbd1dd;
+  --bds-color-border-subdued-inverse: #24272d;
+  --bds-color-chart-01: #33b5e6;
+  --bds-color-chart-02: #3367ce;
+  --bds-color-chart-03: #acd4ef;
+  --bds-color-chart-04: #4d6496;
+  --bds-color-chart-05: #0041c2;
+  --bds-color-chart-06: #668dda;
+  --bds-color-chart-07: #98caec;
+  --bds-color-elevation-01: #ffffff;
+  --bds-color-elevation-02: #ffffff;
+  --bds-color-elevation-03: #ffffff;
+  --bds-color-elevation-04: #ffffff;
+  --bds-color-elevation-05: #ffffff;
+  --bds-color-elevation-06: #ffffff;
+  --bds-color-focus-dark-interactive: #51aaf2;
+  --bds-color-focus-default: #616670;
+  --bds-color-focus-interactive: #0072ce;
+  --bds-color-focus-inverse: #ffffff;
+  --bds-color-focus-light-interactive: #0072ce;
+  --bds-color-highlight: #f3f7ff;
+  --bds-color-icon-brand-blue: #012169;
+  --bds-color-icon-dark-interactive: #51aaf2;
+  --bds-color-icon-dark-interactive-inverse: #0072ce;
+  --bds-color-icon-disabled: rgba(23, 25, 31, 0.3);
+  --bds-color-icon-disabled-inverse: rgba(244, 246, 250, 0.3);
+  --bds-color-icon-gold: #f0b323;
+  --bds-color-icon-gold-inverse: #ffd46e;
+  --bds-color-icon-green: #007a33;
+  --bds-color-icon-green-inverse: #17a452;
+  --bds-color-icon-interactive: #0072ce;
+  --bds-color-icon-interactive-inverse: #51aaf2;
+  --bds-color-icon-light-interactive: #0072ce;
+  --bds-color-icon-light-interactive-inverse: #51aaf2;
+  --bds-color-icon-primary: #17191f;
+  --bds-color-icon-primary-inverse: #f4f6fa;
+  --bds-color-icon-primary-on-dark: #f4f6fa;
+  --bds-color-icon-primary-on-light: #17191f;
+  --bds-color-icon-red: #971b2f;
+  --bds-color-icon-red-inverse: #e77b8c;
+  --bds-color-icon-secondary: rgba(23, 25, 31, 0.8);
+  --bds-color-icon-secondary-inverse: rgba(244, 246, 250, 0.8);
+  --bds-color-icon-secondary-on-dark: rgba(244, 246, 250, 0.8);
+  --bds-color-icon-secondary-on-light: rgba(23, 25, 31, 0.8);
+  --bds-color-icon-solid: #000000;
+  --bds-color-icon-solid-inverse: #ffffff;
+  --bds-color-icon-tertiary: rgba(23, 25, 31, 0.7);
+  --bds-color-icon-tertiary-inverse: rgba(244, 246, 250, 0.7);
+  --bds-color-icon-tertiary-on-dark: rgba(244, 246, 250, 0.7);
+  --bds-color-icon-tertiary-on-light: rgba(23, 25, 31, 0.7);
+  --bds-color-loyalty-dark-blue: #141f48;
+  --bds-color-loyalty-gold: #b89000;
+  --bds-color-loyalty-platinum: #77787b;
+  --bds-color-loyalty-titanium: #545b5e;
+  --bds-color-marketing-blue: #00a3e0;
+  --bds-color-marketing-brand-blue: #012169;
+  --bds-color-marketing-gold: #f0b323;
+  --bds-color-marketing-green: #007a33;
+  --bds-color-marketing-interactive: #0072ce;
+  --bds-color-marketing-light-blue: #9bcbeb;
+  --bds-color-marketing-pro-yellow: #f3d03e;
+  --bds-color-marketing-red: #971b2f;
+  --bds-color-neutral-01: #ffffff;
+  --bds-color-neutral-02: #f4f6fa;
+  --bds-color-neutral-03: #e5e9f1;
+  --bds-color-neutral-04: #cbd1dd;
+  --bds-color-neutral-05: #9ea4b2;
+  --bds-color-neutral-06: #616670;
+  --bds-color-neutral-07: #393c44;
+  --bds-color-neutral-08: #24272d;
+  --bds-color-neutral-09: #17191f;
+  --bds-color-neutral-10: #000000;
+  --bds-color-overlay: rgba(23, 25, 31, 0.7);
+  --bds-color-skeleton-01: #e5e9f1;
+  --bds-color-skeleton-02: #cbd1dd;
+  --bds-color-surface-blue: #00a3e0;
+  --bds-color-surface-blue-inverse: #29bcf3;
+  --bds-color-surface-blue-subdued: #d4f4ff;
+  --bds-color-surface-blue-subdued-inverse: #002a3b;
+  --bds-color-surface-brand-blue: #012169;
+  --bds-color-surface-brand-blue-inverse: #123c9b;
+  --bds-color-surface-brand-blue-subdued: #ebf1ff;
+  --bds-color-surface-brand-blue-subdued-inverse: #001544;
+  --bds-color-surface-dark-subdued: #e5e9f1;
+  --bds-color-surface-default: #ffffff;
+  --bds-color-surface-default-inverse: #00091f;
+  --bds-color-surface-disabled: #9ea4b2;
+  --bds-color-surface-gold: #f0b323;
+  --bds-color-surface-gold-inverse: #ffd46e;
+  --bds-color-surface-gold-subdued: #fff4db;
+  --bds-color-surface-gold-subdued-inverse: #835b00;
+  --bds-color-surface-green: #007a33;
+  --bds-color-surface-green-inverse: #37c271;
+  --bds-color-surface-green-subdued: #d4f7e3;
+  --bds-color-surface-green-subdued-inverse: #003113;
+  --bds-color-surface-light-blue: #9bcbeb;
+  --bds-color-surface-light-blue-inverse: #bcddf4;
+  --bds-color-surface-light-blue-subdued: #ddeef9;
+  --bds-color-surface-light-blue-subdued-inverse: #0a3d5f;
+  --bds-color-surface-red: #971b2f;
+  --bds-color-surface-red-inverse: #e77b8c;
+  --bds-color-surface-red-subdued: #fbdee3;
+  --bds-color-surface-red-subdued-inverse: #40030d;
+  --bds-color-surface-subdued: #f4f6fa;
+  --bds-color-surface-subdued-inverse: #123c9b;
+  --bds-color-text-brand-blue: #012169;
+  --bds-color-text-dark-interactive: #51aaf2;
+  --bds-color-text-dark-interactive-inverse: #0072ce;
+  --bds-color-text-disabled: rgba(23, 25, 31, 0.3);
+  --bds-color-text-disabled-inverse: rgba(244, 246, 250, 0.3);
+  --bds-color-text-green: #007a33;
+  --bds-color-text-green-inverse: #37c271;
+  --bds-color-text-interactive: #0072ce;
+  --bds-color-text-interactive-inverse: #51aaf2;
+  --bds-color-text-light-interactive: #0072ce;
+  --bds-color-text-light-interactive-inverse: #51aaf2;
+  --bds-color-text-primary: #17191f;
+  --bds-color-text-primary-inverse: #f4f6fa;
+  --bds-color-text-primary-on-dark: #f4f6fa;
+  --bds-color-text-primary-on-light: #17191f;
+  --bds-color-text-red: #971b2f;
+  --bds-color-text-red-inverse: #e77b8c;
+  --bds-color-text-secondary: rgba(23, 25, 31, 0.8);
+  --bds-color-text-secondary-inverse: rgba(244, 246, 250, 0.8);
+  --bds-color-text-secondary-on-dark: rgba(244, 246, 250, 0.8);
+  --bds-color-text-secondary-on-light: rgba(23, 25, 31, 0.8);
+  --bds-color-text-solid: #000000;
+  --bds-color-text-solid-inverse: #ffffff;
+  --bds-color-text-tertiary: rgba(23, 25, 31, 0.7);
+  --bds-color-text-tertiary-inverse: rgba(244, 246, 250, 0.7);
+  --bds-color-text-tertiary-on-dark: rgba(244, 246, 250, 0.7);
+  --bds-color-text-tertiary-on-light: rgba(23, 25, 31, 0.7);
+  --bds-color-text-visited-link: #7f2cfc;
+  --bds-color-white: #ffffff;
+  --bds-comp-alert-close-icon-spacing-top: 0.25rem;
+  --bds-comp-alert-icon-spacing-vertical: 0.75rem;
+  --bds-comp-alert-info-icon-color-icon-blue: #00a3e0;
+  --bds-comp-button-border-radius: 0.5rem;
+  --bds-comp-button-focus-ring-radius: 0.625rem;
+  --bds-comp-buttongroup-border-radius: 0.5rem;
+  --bds-comp-buttongroup-focus-ring-radius: 0.625rem;
+  --bds-comp-icon-size-desktop-lg: 1.125rem;
+  --bds-comp-icon-size-desktop-md: 1rem;
+  --bds-comp-icon-size-desktop-sm: 0.875rem;
+  --bds-comp-icon-size-desktop-xl: 1.5rem;
+  --bds-comp-icon-size-desktop-xs: 0.75rem;
+  --bds-comp-icon-size-desktop-xxl: 2rem;
+  --bds-comp-icon-size-lg: 1.125rem;
+  --bds-comp-icon-size-md: 1rem;
+  --bds-comp-icon-size-mobile-lg: 1.125rem;
+  --bds-comp-icon-size-mobile-md: 1rem;
+  --bds-comp-icon-size-mobile-sm: 0.875rem;
+  --bds-comp-icon-size-mobile-xl: 1.5rem;
+  --bds-comp-icon-size-mobile-xs: 0.75rem;
+  --bds-comp-icon-size-mobile-xxl: 2rem;
+  --bds-comp-icon-size-sm: 0.875rem;
+  --bds-comp-icon-size-xl: 1.5rem;
+  --bds-comp-icon-size-xs: 0.75rem;
+  --bds-comp-icon-size-xxl: 2rem;
+  --bds-comp-iconbutton-border-radius: 0.5rem;
+  --bds-comp-iconbutton-focus-ring-radius: 0.625rem;
+  --bds-comp-iconbutton-padding-desktop-lg: 1rem;
+  --bds-comp-iconbutton-padding-desktop-md: 0.9375rem;
+  --bds-comp-iconbutton-padding-desktop-sm: 0.75rem;
+  --bds-comp-iconbutton-padding-desktop-xl: 2rem;
+  --bds-comp-iconbutton-padding-desktop-xs: 0.5625rem;
+  --bds-comp-iconbutton-padding-lg: 1rem;
+  --bds-comp-iconbutton-padding-md: 0.9375rem;
+  --bds-comp-iconbutton-padding-mobile-lg: 1rem;
+  --bds-comp-iconbutton-padding-mobile-md: 0.9375rem;
+  --bds-comp-iconbutton-padding-mobile-sm: 0.5rem;
+  --bds-comp-iconbutton-padding-mobile-xl: 2rem;
+  --bds-comp-iconbutton-padding-mobile-xs: 0.5625rem;
+  --bds-comp-iconbutton-padding-sm: 0.75rem;
+  --bds-comp-iconbutton-padding-xl: 2rem;
+  --bds-comp-iconbutton-padding-xs: 0.5625rem;
+  --bds-comp-toggle-border-radius: 0.5rem;
+  --bds-comp-toggle-focus-ring-radius: 0.625rem;
+  --bds-comp-tooltip-arrow-size: 0.75rem;
+  --bds-core-border-radius-circle: 624.9375rem;
+  --bds-core-border-radius-lg: 0.5rem;
+  --bds-core-border-radius-md: 0.25rem;
+  --bds-core-border-radius-sm: 0.125rem;
+  --bds-core-border-radius-xl: 0.625rem;
+  --bds-core-border-width-2xl: 0.625rem;
+  --bds-core-border-width-lg: 0.1875rem;
+  --bds-core-border-width-md: 0.125rem;
+  --bds-core-border-width-sm: 0.0625rem;
+  --bds-core-border-width-xl: 0.5rem;
+  --bds-core-breakpoints-lg-max: 82rem;
+  --bds-core-breakpoints-lg-min: 66.0625rem;
+  --bds-core-breakpoints-md-max: 66rem;
+  --bds-core-breakpoints-md-min: 42.0625rem;
+  --bds-core-breakpoints-sm-max: 42rem;
+  --bds-core-breakpoints-sm-min: 20.0625rem;
+  --bds-core-breakpoints-xl-max: 99rem;
+  --bds-core-breakpoints-xl-min: 82.0625rem;
+  --bds-core-breakpoints-xs-max: 20rem;
+  --bds-core-breakpoints-xs-min: 0rem;
+  --bds-core-breakpoints-xxl-max: 624.9375rem;
+  --bds-core-breakpoints-xxl-min: 99.0625rem;
+  --bds-core-font-family-fellix: Fellix, Arial, sans-serif;
+  --bds-core-font-family-fellix-roboto: Fellix, Roboto, Helvetica, Arial, sans-serif;
+  --bds-core-font-family-roboto: Roboto, Helvetica, Arial, sans-serif;
+  --bds-core-font-line-height-10xl: 7.5rem;
+  --bds-core-font-line-height-2xl: 2rem;
+  --bds-core-font-line-height-3xl: 2.5rem;
+  --bds-core-font-line-height-4xl: 2.5rem;
+  --bds-core-font-line-height-5xl: 3.5rem;
+  --bds-core-font-line-height-6xl: 3.5rem;
+  --bds-core-font-line-height-7xl: 4.5rem;
+  --bds-core-font-line-height-8xl: 5rem;
+  --bds-core-font-line-height-9xl: 6.5rem;
+  --bds-core-font-line-height-base: 1.5rem;
+  --bds-core-font-line-height-desktop-10xl: 7.5rem;
+  --bds-core-font-line-height-desktop-2xl: 2rem;
+  --bds-core-font-line-height-desktop-3xl: 2.5rem;
+  --bds-core-font-line-height-desktop-4xl: 2.5rem;
+  --bds-core-font-line-height-desktop-5xl: 3.5rem;
+  --bds-core-font-line-height-desktop-6xl: 3.5rem;
+  --bds-core-font-line-height-desktop-7xl: 4.5rem;
+  --bds-core-font-line-height-desktop-8xl: 5rem;
+  --bds-core-font-line-height-desktop-9xl: 6.5rem;
+  --bds-core-font-line-height-desktop-base: 1.5rem;
+  --bds-core-font-line-height-desktop-lg: 1.5rem;
+  --bds-core-font-line-height-desktop-sm: 1.5rem;
+  --bds-core-font-line-height-desktop-xl: 2rem;
+  --bds-core-font-line-height-desktop-xs: 1rem;
+  --bds-core-font-line-height-desktop-xxs: 1rem;
+  --bds-core-font-line-height-lg: 1.5rem;
+  --bds-core-font-line-height-mobile-10xl: 7.5rem;
+  --bds-core-font-line-height-mobile-2xl: 2rem;
+  --bds-core-font-line-height-mobile-3xl: 2.5rem;
+  --bds-core-font-line-height-mobile-4xl: 2.5rem;
+  --bds-core-font-line-height-mobile-5xl: 3.5rem;
+  --bds-core-font-line-height-mobile-6xl: 3.5rem;
+  --bds-core-font-line-height-mobile-7xl: 4.5rem;
+  --bds-core-font-line-height-mobile-8xl: 5rem;
+  --bds-core-font-line-height-mobile-9xl: 6.5rem;
+  --bds-core-font-line-height-mobile-base: 1.5rem;
+  --bds-core-font-line-height-mobile-lg: 1.5rem;
+  --bds-core-font-line-height-mobile-sm: 1.5rem;
+  --bds-core-font-line-height-mobile-xl: 2rem;
+  --bds-core-font-line-height-mobile-xs: 1rem;
+  --bds-core-font-line-height-mobile-xxs: 1rem;
+  --bds-core-font-line-height-sm: 1.5rem;
+  --bds-core-font-line-height-xl: 2rem;
+  --bds-core-font-line-height-xs: 1rem;
+  --bds-core-font-line-height-xxs: 1rem;
+  --bds-core-font-size-10xl: 6rem;
+  --bds-core-font-size-2xl: 1.5rem;
+  --bds-core-font-size-3xl: 1.75rem;
+  --bds-core-font-size-4xl: 2rem;
+  --bds-core-font-size-5xl: 2.5rem;
+  --bds-core-font-size-6xl: 3rem;
+  --bds-core-font-size-7xl: 3.5rem;
+  --bds-core-font-size-8xl: 4rem;
+  --bds-core-font-size-9xl: 5rem;
+  --bds-core-font-size-base: 1rem;
+  --bds-core-font-size-desktop-10xl: 6rem;
+  --bds-core-font-size-desktop-2xl: 1.5rem;
+  --bds-core-font-size-desktop-3xl: 1.75rem;
+  --bds-core-font-size-desktop-4xl: 2rem;
+  --bds-core-font-size-desktop-5xl: 2.5rem;
+  --bds-core-font-size-desktop-6xl: 3rem;
+  --bds-core-font-size-desktop-7xl: 3.5rem;
+  --bds-core-font-size-desktop-8xl: 4rem;
+  --bds-core-font-size-desktop-9xl: 5rem;
+  --bds-core-font-size-desktop-base: 1rem;
+  --bds-core-font-size-desktop-lg: 1.125rem;
+  --bds-core-font-size-desktop-sm: 0.875rem;
+  --bds-core-font-size-desktop-xl: 1.25rem;
+  --bds-core-font-size-desktop-xs: 0.75rem;
+  --bds-core-font-size-desktop-xxs: 0.625rem;
+  --bds-core-font-size-lg: 1.125rem;
+  --bds-core-font-size-mobile-10xl: 6rem;
+  --bds-core-font-size-mobile-2xl: 1.5rem;
+  --bds-core-font-size-mobile-3xl: 1.75rem;
+  --bds-core-font-size-mobile-4xl: 2rem;
+  --bds-core-font-size-mobile-5xl: 2.5rem;
+  --bds-core-font-size-mobile-6xl: 3rem;
+  --bds-core-font-size-mobile-7xl: 3.5rem;
+  --bds-core-font-size-mobile-8xl: 4rem;
+  --bds-core-font-size-mobile-9xl: 5rem;
+  --bds-core-font-size-mobile-base: 1rem;
+  --bds-core-font-size-mobile-lg: 1.125rem;
+  --bds-core-font-size-mobile-sm: 0.875rem;
+  --bds-core-font-size-mobile-xl: 1.25rem;
+  --bds-core-font-size-mobile-xs: 0.75rem;
+  --bds-core-font-size-mobile-xxs: 0.625rem;
+  --bds-core-font-size-sm: 0.875rem;
+  --bds-core-font-size-xl: 1.25rem;
+  --bds-core-font-size-xs: 0.75rem;
+  --bds-core-font-size-xxs: 0.625rem;
+  --bds-core-font-tag-article-desktop-font-size: 1rem;
+  --bds-core-font-tag-article-desktop-line-height: 2rem;
+  --bds-core-font-tag-article-font-size: 0.875rem;
+  --bds-core-font-tag-article-line-height: 2rem;
+  --bds-core-font-tag-article-mobile-font-size: 0.875rem;
+  --bds-core-font-tag-article-mobile-line-height: 2rem;
+  --bds-core-font-tag-body-1-desktop-font-size: 1rem;
+  --bds-core-font-tag-body-1-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-body-1-font-size: 0.875rem;
+  --bds-core-font-tag-body-1-line-height: 1.5rem;
+  --bds-core-font-tag-body-1-mobile-font-size: 0.875rem;
+  --bds-core-font-tag-body-1-mobile-line-height: 1.5rem;
+  --bds-core-font-tag-body-2-desktop-font-size: 0.875rem;
+  --bds-core-font-tag-body-2-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-body-2-font-size: 0.75rem;
+  --bds-core-font-tag-body-2-line-height: 1rem;
+  --bds-core-font-tag-body-2-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-body-2-mobile-line-height: 1rem;
+  --bds-core-font-tag-caption-desktop-font-size: 0.875rem;
+  --bds-core-font-tag-caption-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-caption-font-size: 0.75rem;
+  --bds-core-font-tag-caption-line-height: 1rem;
+  --bds-core-font-tag-caption-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-caption-mobile-line-height: 1rem;
+  --bds-core-font-tag-footnote-desktop-font-size: 0.75rem;
+  --bds-core-font-tag-footnote-desktop-line-height: 1rem;
+  --bds-core-font-tag-footnote-font-size: 0.625rem;
+  --bds-core-font-tag-footnote-line-height: 1rem;
+  --bds-core-font-tag-footnote-mobile-font-size: 0.625rem;
+  --bds-core-font-tag-footnote-mobile-line-height: 1rem;
+  --bds-core-font-tag-h1-desktop-font-size: 2.5rem;
+  --bds-core-font-tag-h1-desktop-line-height: 3.5rem;
+  --bds-core-font-tag-h1-font-size: 1.75rem;
+  --bds-core-font-tag-h1-line-height: 2.5rem;
+  --bds-core-font-tag-h1-mobile-font-size: 1.75rem;
+  --bds-core-font-tag-h1-mobile-line-height: 2.5rem;
+  --bds-core-font-tag-h2-desktop-font-size: 1.75rem;
+  --bds-core-font-tag-h2-desktop-line-height: 2.5rem;
+  --bds-core-font-tag-h2-font-size: 1.5rem;
+  --bds-core-font-tag-h2-line-height: 2rem;
+  --bds-core-font-tag-h2-mobile-font-size: 1.5rem;
+  --bds-core-font-tag-h2-mobile-line-height: 2rem;
+  --bds-core-font-tag-h3-desktop-font-size: 1.5rem;
+  --bds-core-font-tag-h3-desktop-line-height: 2rem;
+  --bds-core-font-tag-h3-font-size: 1.25rem;
+  --bds-core-font-tag-h3-line-height: 2rem;
+  --bds-core-font-tag-h3-mobile-font-size: 1.25rem;
+  --bds-core-font-tag-h3-mobile-line-height: 2rem;
+  --bds-core-font-tag-h4-desktop-font-size: 1.25rem;
+  --bds-core-font-tag-h4-desktop-line-height: 2rem;
+  --bds-core-font-tag-h4-font-size: 1rem;
+  --bds-core-font-tag-h4-line-height: 1.5rem;
+  --bds-core-font-tag-h4-mobile-font-size: 1rem;
+  --bds-core-font-tag-h4-mobile-line-height: 1.5rem;
+  --bds-core-font-tag-h5-desktop-font-size: 1rem;
+  --bds-core-font-tag-h5-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-h5-font-size: 0.875rem;
+  --bds-core-font-tag-h5-line-height: 1.5rem;
+  --bds-core-font-tag-h5-mobile-font-size: 0.875rem;
+  --bds-core-font-tag-h5-mobile-line-height: 1.5rem;
+  --bds-core-font-tag-h6-desktop-font-size: 0.875rem;
+  --bds-core-font-tag-h6-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-h6-font-size: 0.75rem;
+  --bds-core-font-tag-h6-line-height: 1rem;
+  --bds-core-font-tag-h6-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-h6-mobile-line-height: 1rem;
+  --bds-core-font-tag-helper-text-desktop-font-size: 0.75rem;
+  --bds-core-font-tag-helper-text-desktop-line-height: 0.75rem;
+  --bds-core-font-tag-helper-text-font-size: 0.75rem;
+  --bds-core-font-tag-helper-text-line-height: 0.75rem;
+  --bds-core-font-tag-helper-text-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-helper-text-mobile-line-height: 0.75rem;
+  --bds-core-font-tag-label-desktop-font-size: 1rem;
+  --bds-core-font-tag-label-desktop-line-height: 1.5rem;
+  --bds-core-font-tag-label-font-size: 0.75rem;
+  --bds-core-font-tag-label-line-height: 1rem;
+  --bds-core-font-tag-label-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-label-mobile-line-height: 1rem;
+  --bds-core-font-tag-overline-desktop-font-size: 0.75rem;
+  --bds-core-font-tag-overline-desktop-line-height: 1rem;
+  --bds-core-font-tag-overline-font-size: 0.75rem;
+  --bds-core-font-tag-overline-line-height: 1rem;
+  --bds-core-font-tag-overline-mobile-font-size: 0.75rem;
+  --bds-core-font-tag-overline-mobile-line-height: 1rem;
+  --bds-core-font-weight-bold: 700;
+  --bds-core-font-weight-medium: 500;
+  --bds-core-font-weight-regular: 400;
+  --bds-core-font-weight-semibold: 600;
+  --bds-core-grid-breakpoint-lg-max: 82rem;
+  --bds-core-grid-breakpoint-lg-min: 66.0625rem;
+  --bds-core-grid-breakpoint-md-max: 66rem;
+  --bds-core-grid-breakpoint-md-min: 42.0625rem;
+  --bds-core-grid-breakpoint-sm-max: 42rem;
+  --bds-core-grid-breakpoint-sm-min: 20.0625rem;
+  --bds-core-grid-breakpoint-xl-max: 99rem;
+  --bds-core-grid-breakpoint-xl-min: 82.0625rem;
+  --bds-core-grid-breakpoint-xs-max: 20rem;
+  --bds-core-grid-breakpoint-xs-min: 0rem;
+  --bds-core-grid-breakpoint-xxl-max: 624.9375rem;
+  --bds-core-grid-breakpoint-xxl-min: 99.0625rem;
+  --bds-core-grid-margin-lg: 2.5rem;
+  --bds-core-grid-margin-md: 1.5rem;
+  --bds-core-grid-margin-none: 0rem;
+  --bds-core-grid-margin-sm: 1rem;
+  --bds-core-grid-padding: 1rem;
+  --bds-core-shadows-shadow-01:
+    0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  --bds-core-shadows-shadow-02:
+    0px 2px 5px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12);
+  --bds-core-shadows-shadow-03:
+    0px 2px 4px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14),
+    0px 1px 10px rgba(0, 0, 0, 0.12);
+  --bds-core-shadows-shadow-04:
+    0px 5px 5px rgba(0, 0, 0, 0.2), 0px 8px 10px rgba(0, 0, 0, 0.14),
+    0px 3px 14px rgba(0, 0, 0, 0.12);
+  --bds-core-shadows-shadow-05:
+    0px 8px 10px rgba(0, 0, 0, 0.2), 0px 16px 24px rgba(0, 0, 0, 0.14),
+    0px 6px 30px rgba(0, 0, 0, 0.12);
+  --bds-core-shadows-shadow-06:
+    0px 11px 15px rgba(0, 0, 0, 0.2), 0px 24px 38px rgba(0, 0, 0, 0.14),
+    0px 9px 46px rgba(0, 0, 0, 0.12);
+  --bds-core-spacing-100: 0.5rem;
+  --bds-core-spacing-1000: 5rem;
+  --bds-core-spacing-125: 0.5rem;
+  --bds-core-spacing-150: 0.75rem;
+  --bds-core-spacing-200: 1rem;
+  --bds-core-spacing-25: 0.125rem;
+  --bds-core-spacing-300: 1.5rem;
+  --bds-core-spacing-350: 1.5rem;
+  --bds-core-spacing-400: 2rem;
+  --bds-core-spacing-50: 0.25rem;
+  --bds-core-spacing-500: 2.5rem;
+  --bds-core-spacing-600: 3rem;
+  --bds-core-spacing-700: 3.5rem;
+  --bds-core-spacing-800: 4rem;
+  --bds-core-spacing-900: 4.5rem;
+  --bds-core-spacing-desktop-100: 0.5rem;
+  --bds-core-spacing-desktop-1000: 5rem;
+  --bds-core-spacing-desktop-125: 0.5rem;
+  --bds-core-spacing-desktop-150: 0.75rem;
+  --bds-core-spacing-desktop-200: 1rem;
+  --bds-core-spacing-desktop-25: 0.125rem;
+  --bds-core-spacing-desktop-300: 1.5rem;
+  --bds-core-spacing-desktop-350: 1.75rem;
+  --bds-core-spacing-desktop-400: 2rem;
+  --bds-core-spacing-desktop-50: 0.25rem;
+  --bds-core-spacing-desktop-500: 2.5rem;
+  --bds-core-spacing-desktop-600: 3rem;
+  --bds-core-spacing-desktop-700: 3.5rem;
+  --bds-core-spacing-desktop-800: 4rem;
+  --bds-core-spacing-desktop-900: 4.5rem;
+  --bds-core-spacing-horizontal-100: 0.5rem;
+  --bds-core-spacing-horizontal-1000: 5rem;
+  --bds-core-spacing-horizontal-125: 0.5rem;
+  --bds-core-spacing-horizontal-150: 0.75rem;
+  --bds-core-spacing-horizontal-200: 1rem;
+  --bds-core-spacing-horizontal-25: 0.125rem;
+  --bds-core-spacing-horizontal-300: 1.5rem;
+  --bds-core-spacing-horizontal-350: 1.75rem;
+  --bds-core-spacing-horizontal-400: 2rem;
+  --bds-core-spacing-horizontal-50: 0.25rem;
+  --bds-core-spacing-horizontal-500: 2.5rem;
+  --bds-core-spacing-horizontal-600: 3rem;
+  --bds-core-spacing-horizontal-700: 3.5rem;
+  --bds-core-spacing-horizontal-800: 4rem;
+  --bds-core-spacing-horizontal-900: 4.5rem;
+  --bds-core-spacing-horizontal-desktop-100: 0.5rem;
+  --bds-core-spacing-horizontal-desktop-1000: 5rem;
+  --bds-core-spacing-horizontal-desktop-125: 0.5rem;
+  --bds-core-spacing-horizontal-desktop-150: 0.75rem;
+  --bds-core-spacing-horizontal-desktop-200: 1rem;
+  --bds-core-spacing-horizontal-desktop-25: 0.125rem;
+  --bds-core-spacing-horizontal-desktop-300: 1.5rem;
+  --bds-core-spacing-horizontal-desktop-350: 1.75rem;
+  --bds-core-spacing-horizontal-desktop-400: 2rem;
+  --bds-core-spacing-horizontal-desktop-50: 0.25rem;
+  --bds-core-spacing-horizontal-desktop-500: 2.5rem;
+  --bds-core-spacing-horizontal-desktop-600: 3rem;
+  --bds-core-spacing-horizontal-desktop-700: 3.5rem;
+  --bds-core-spacing-horizontal-desktop-800: 4rem;
+  --bds-core-spacing-horizontal-desktop-900: 4.5rem;
+  --bds-core-spacing-horizontal-mobile-100: 0.5rem;
+  --bds-core-spacing-horizontal-mobile-1000: 5rem;
+  --bds-core-spacing-horizontal-mobile-125: 0.5rem;
+  --bds-core-spacing-horizontal-mobile-150: 0.75rem;
+  --bds-core-spacing-horizontal-mobile-200: 1rem;
+  --bds-core-spacing-horizontal-mobile-25: 0.125rem;
+  --bds-core-spacing-horizontal-mobile-300: 1.5rem;
+  --bds-core-spacing-horizontal-mobile-350: 1.75rem;
+  --bds-core-spacing-horizontal-mobile-400: 2rem;
+  --bds-core-spacing-horizontal-mobile-50: 0.25rem;
+  --bds-core-spacing-horizontal-mobile-500: 2.5rem;
+  --bds-core-spacing-horizontal-mobile-600: 3rem;
+  --bds-core-spacing-horizontal-mobile-700: 3.5rem;
+  --bds-core-spacing-horizontal-mobile-800: 4rem;
+  --bds-core-spacing-horizontal-mobile-900: 4.5rem;
+  --bds-core-spacing-mobile-100: 0.5rem;
+  --bds-core-spacing-mobile-1000: 5rem;
+  --bds-core-spacing-mobile-125: 0.5rem;
+  --bds-core-spacing-mobile-150: 0.75rem;
+  --bds-core-spacing-mobile-200: 1rem;
+  --bds-core-spacing-mobile-25: 0.125rem;
+  --bds-core-spacing-mobile-300: 1.5rem;
+  --bds-core-spacing-mobile-350: 1.5rem;
+  --bds-core-spacing-mobile-400: 2rem;
+  --bds-core-spacing-mobile-50: 0.25rem;
+  --bds-core-spacing-mobile-500: 2.5rem;
+  --bds-core-spacing-mobile-600: 3rem;
+  --bds-core-spacing-mobile-700: 3.5rem;
+  --bds-core-spacing-mobile-800: 4rem;
+  --bds-core-spacing-mobile-900: 4.5rem;
+  --bds-core-spacing-vertical-100: 0.5rem;
+  --bds-core-spacing-vertical-1000: 5rem;
+  --bds-core-spacing-vertical-125: 0.5rem;
+  --bds-core-spacing-vertical-150: 0.75rem;
+  --bds-core-spacing-vertical-200: 1rem;
+  --bds-core-spacing-vertical-25: 0.125rem;
+  --bds-core-spacing-vertical-300: 1.5rem;
+  --bds-core-spacing-vertical-350: 1.75rem;
+  --bds-core-spacing-vertical-400: 2rem;
+  --bds-core-spacing-vertical-50: 0.25rem;
+  --bds-core-spacing-vertical-500: 2.5rem;
+  --bds-core-spacing-vertical-600: 3rem;
+  --bds-core-spacing-vertical-700: 3.5rem;
+  --bds-core-spacing-vertical-800: 4rem;
+  --bds-core-spacing-vertical-900: 4.5rem;
+  --bds-core-spacing-vertical-desktop-100: 0.5rem;
+  --bds-core-spacing-vertical-desktop-1000: 5rem;
+  --bds-core-spacing-vertical-desktop-125: 0.5rem;
+  --bds-core-spacing-vertical-desktop-150: 0.75rem;
+  --bds-core-spacing-vertical-desktop-200: 1rem;
+  --bds-core-spacing-vertical-desktop-25: 0.125rem;
+  --bds-core-spacing-vertical-desktop-300: 1.5rem;
+  --bds-core-spacing-vertical-desktop-350: 1.75rem;
+  --bds-core-spacing-vertical-desktop-400: 2rem;
+  --bds-core-spacing-vertical-desktop-50: 0.25rem;
+  --bds-core-spacing-vertical-desktop-500: 2.5rem;
+  --bds-core-spacing-vertical-desktop-600: 3rem;
+  --bds-core-spacing-vertical-desktop-700: 3.5rem;
+  --bds-core-spacing-vertical-desktop-800: 4rem;
+  --bds-core-spacing-vertical-desktop-900: 4.5rem;
+  --bds-core-spacing-vertical-mobile-100: 0.5rem;
+  --bds-core-spacing-vertical-mobile-1000: 5rem;
+  --bds-core-spacing-vertical-mobile-125: 0.5rem;
+  --bds-core-spacing-vertical-mobile-150: 0.75rem;
+  --bds-core-spacing-vertical-mobile-200: 1rem;
+  --bds-core-spacing-vertical-mobile-25: 0.125rem;
+  --bds-core-spacing-vertical-mobile-300: 1.5rem;
+  --bds-core-spacing-vertical-mobile-350: 1.75rem;
+  --bds-core-spacing-vertical-mobile-400: 2rem;
+  --bds-core-spacing-vertical-mobile-50: 0.25rem;
+  --bds-core-spacing-vertical-mobile-500: 2.5rem;
+  --bds-core-spacing-vertical-mobile-600: 3rem;
+  --bds-core-spacing-vertical-mobile-700: 3.5rem;
+  --bds-core-spacing-vertical-mobile-800: 4rem;
+  --bds-core-spacing-vertical-mobile-900: 4.5rem;
+  --bds-core-z-index-drawer: 1200;
+  --bds-core-z-index-floating: 1050;
+  --bds-core-z-index-modal: 1300;
+  --bds-core-z-index-notification: 1400;
+  --bds-core-z-index-overlay: 1150;
+  --bds-core-z-index-tooltip: 1500;
+  --ref-sizes-size-0: 0rem;
+  --ref-sizes-size-1: 0.0625rem;
+  --ref-sizes-size-10: 0.625rem;
+  --ref-sizes-size-100: 6.25rem;
+  --ref-sizes-size-104: 6.5rem;
+  --ref-sizes-size-108: 6.75rem;
+  --ref-sizes-size-112: 7rem;
+  --ref-sizes-size-116: 7.25rem;
+  --ref-sizes-size-12: 0.75rem;
+  --ref-sizes-size-120: 7.5rem;
+  --ref-sizes-size-124: 7.75rem;
+  --ref-sizes-size-128: 8rem;
+  --ref-sizes-size-14: 0.875rem;
+  --ref-sizes-size-15: 0.9375rem;
+  --ref-sizes-size-16: 1rem;
+  --ref-sizes-size-18: 1.125rem;
+  --ref-sizes-size-2: 0.125rem;
+  --ref-sizes-size-20: 1.25rem;
+  --ref-sizes-size-24: 1.5rem;
+  --ref-sizes-size-28: 1.75rem;
+  --ref-sizes-size-3: 0.1875rem;
+  --ref-sizes-size-32: 2rem;
+  --ref-sizes-size-36: 2.25rem;
+  --ref-sizes-size-38: 2.375rem;
+  --ref-sizes-size-4: 0.25rem;
+  --ref-sizes-size-40: 2.5rem;
+  --ref-sizes-size-44: 2.75rem;
+  --ref-sizes-size-48: 3rem;
+  --ref-sizes-size-5: 0.3125rem;
+  --ref-sizes-size-52: 3.25rem;
+  --ref-sizes-size-56: 3.5rem;
+  --ref-sizes-size-6: 0.375rem;
+  --ref-sizes-size-60: 3.75rem;
+  --ref-sizes-size-64: 4rem;
+  --ref-sizes-size-68: 4.25rem;
+  --ref-sizes-size-7: 0.4375rem;
+  --ref-sizes-size-72: 4.5rem;
+  --ref-sizes-size-76: 4.75rem;
+  --ref-sizes-size-8: 0.5rem;
+  --ref-sizes-size-80: 5rem;
+  --ref-sizes-size-84: 5.25rem;
+  --ref-sizes-size-88: 5.5rem;
+  --ref-sizes-size-9: 0.5625rem;
+  --ref-sizes-size-92: 5.75rem;
+  --ref-sizes-size-96: 6rem;
+  --ref-sizes-size-9999: 624.9375rem;
+  --ref-typography-family-fellix: Fellix, Arial, sans-serif;
+  --ref-typography-family-roboto: Roboto, Helvetica, Arial, sans-serif;
+  --ref-typography-size-font-10: 0.625rem;
+  --ref-typography-size-font-112: 7rem;
+  --ref-typography-size-font-12: 0.75rem;
+  --ref-typography-size-font-128: 8rem;
+  --ref-typography-size-font-14: 0.875rem;
+  --ref-typography-size-font-16: 1rem;
+  --ref-typography-size-font-18: 1.125rem;
+  --ref-typography-size-font-20: 1.25rem;
+  --ref-typography-size-font-24: 1.5rem;
+  --ref-typography-size-font-28: 1.75rem;
+  --ref-typography-size-font-32: 2rem;
+  --ref-typography-size-font-36: 2.25rem;
+  --ref-typography-size-font-40: 2.5rem;
+  --ref-typography-size-font-44: 2.75rem;
+  --ref-typography-size-font-48: 3rem;
+  --ref-typography-size-font-56: 3.5rem;
+  --ref-typography-size-font-64: 4rem;
+  --ref-typography-size-font-80: 5rem;
+  --ref-typography-size-font-96: 6rem;
+  --ref-typography-weight-bold: 700;
+  --ref-typography-weight-medium: 500;
+  --ref-typography-weight-regular: 400;
+  --ref-typography-weight-semibold: 600;
+}
+
+:root,
+:root.light {
+  --font-size: 16px;
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  --text-xs: var(--bds-core-font-size-xs);
+  --text-sm: var(--bds-core-font-size-sm);
+  --text-base: var(--bds-core-font-size-base);
+  --text-lg: var(--bds-core-font-size-lg);
+  --text-xl: var(--bds-core-font-size-xl);
+  --text-2xl: var(--bds-core-font-size-2xl);
+  --text-3xl: var(--bds-core-font-size-3xl);
+
+  --background: var(--bds-color-surface-default);
+  --foreground: var(--bds-color-text-primary);
+
+  --card: var(--bds-color-surface-default);
+  --card-foreground: var(--bds-color-text-primary);
+
+  --popover: var(--bds-color-surface-default);
+  --popover-foreground: var(--bds-color-text-primary);
+
+  --primary: var(--bds-color-marketing-brand-blue);
+  --primary-foreground: var(--bds-color-text-primary-on-dark);
+
+  --secondary: var(--bds-color-surface-subdued);
+  --secondary-foreground: var(--bds-color-text-primary);
+
+  --muted: var(--color-neutral-200);
+  --muted-foreground: #717182;
+
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+
+  --destructive: var(--bds-color-marketing-red);
+  --destructive-foreground: var(--bds-color-text-primary-on-dark);
+
+  --border: var(--bds-color-border-default);
+
+  --input: transparent;
+  --input-background: transparent;
+  --switch-background: var(--color-neutral-400);
+
+  --ring: var(--bds-color-focus-default);
+
+  --elevation-sm:
+    0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --radius: var(--bds-core-border-radius-md);
+  --radius-full: 9999px;
+  --radius-badge: var(--bds-core-border-radius-md);
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: var(--color-neutral-900);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --font-size: 16px;
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  --text-xs: var(--bds-core-font-size-xs);
+  --text-sm: var(--bds-core-font-size-sm);
+  --text-base: var(--bds-core-font-size-base);
+  --text-lg: var(--bds-core-font-size-lg);
+  --text-xl: var(--bds-core-font-size-xl);
+  --text-2xl: var(--bds-core-font-size-2xl);
+  --text-3xl: var(--bds-core-font-size-3xl);
+
+  --background: var(--bds-color-surface-default-inverse);
+  --foreground: var(--bds-color-text-primary-inverse);
+
+  --card: var(--bds-color-surface-default-inverse);
+  --card-foreground: var(--bds-color-text-primary-inverse);
+
+  --popover: var(--bds-color-surface-default-inverse);
+  --popover-foreground: var(--bds-color-text-primary-inverse);
+
+  --primary: var(--bds-color-marketing-brand-blue);
+  --primary-foreground: var(--bds-color-text-primary-on-dark);
+
+  --secondary: var(--bds-color-surface-subdued);
+  --secondary-foreground: var(--bds-color-text-primary);
+
+  --muted: var(--color-neutral-200);
+  --muted-foreground: #717182;
+
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+
+  --destructive: var(--bds-color-marketing-red);
+  --destructive-foreground: var(--bds-color-text-primary-on-dark);
+
+  --border: var(--bds-color-border-default);
+
+  --input: transparent;
+  --input-background: transparent;
+  --switch-background: var(--color-neutral-400);
+
+  --ring: var(--bds-color-focus-default);
+
+  --elevation-sm:
+    0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --radius: var(--bds-core-border-radius-md);
+  --radius-full: 9999px;
+  --radius-badge: var(--bds-core-border-radius-md);
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: var(--color-neutral-900);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: var(--bds-core-border-radius-sm);
+  --radius-md: var(--bds-core-border-radius-md);
+  --radius-lg: var(--bds-core-border-radius-lg);
+  --radius-xl: var(--bds-core-border-radius-xl);
+  --radius-badge: var(--radius-badge);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-sm: var(--elevation-sm);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ---- 100 - Thin ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Thin.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Thin.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 200 - No ExtraLight weight for Fellix, so intentionally skip it */
+
+/* ---- 300 - Light ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Light.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Light.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 400 - Regular ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Regular.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Regular.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 500 - Medium ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Medium.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Medium.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 600 - Semi-Bold ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-SemiBold.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-SemiBold.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 700 - Bold ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Bold.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Bold.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 800 - Extra Bold ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-ExtraBold.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-ExtraBold.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 900 - Black ---- */
+@font-face {
+  font-family: 'Fellix';
+  src:
+    local('Fellix') url('https://www.lowescdn.com/sffonts/Fellix-Black.woff2') format('woff2'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Black.woff') format('woff'),
+    url('https://www.lowescdn.com/sffonts/Fellix-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: 'Fellix', Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+  }
+
+  h5,
+  h6 {
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  p,
+  input,
+  textarea,
+  select {
+    font-size: var(--text-base);
+    font-weight: var(--bds-core-font-weight-regular);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-sm);
+    font-weight: var(--bds-core-font-weight-regular);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--bds-core-font-weight-semibold);
+    line-height: 1.5;
+    letter-spacing: 0.24px;
+  }
+
+  a {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    text-decoration: underline;
+  }
+}
